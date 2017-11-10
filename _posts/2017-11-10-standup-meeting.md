@@ -15,7 +15,7 @@ All team members get together in the **morning** and **stand up** for the durati
 ### Step 2: Put your game face on
 When people know what to expect, they tend to lose interest. Because daily stand-ups are routine by nature, you need to vary the routine in order to keep people engaged. For example, if your typical stand-up agenda includes going around the room clockwise and hearing from each person, think about putting everyone’s name in a hat and drawing to see who goes next. You can even make it more interesting by giving out prizes, such as a Starbucks gift card or some other [tchotchke](https://en.wikipedia.org/wiki/Tchotchke) for the “last one standing” (last name picked). You may even want to take a note from "The Pee-Wee Herman Show" and have a daily **secret word** to keep people listening closely.
 
-<iframe width="740" height="420" src="https://www.youtube.com/embed/gxMZgeBlqzQ" frameborder="0" allowfullscreen></iframe>
+{% youtube "https://www.youtube.com/watch?v=gxMZgeBlqzQ" %}
 
 ### Step 3: Three Questions
 Scrum-style stand-ups convene daily to re-plan in-progress development.[7] Though it may not be practical to limit all discussion to these three questions, the objective is to create a new sprint plan within the time box (less than 15 minutes), while deferring discussions about impediments until after the event is complete. Team members briefly (a maximum of one minute per team member) address three questions as input to this planning:

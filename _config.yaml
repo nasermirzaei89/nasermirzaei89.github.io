@@ -41,6 +41,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jemoji
+  - jekyll-youtube
 
 # Conversion
 markdown:    kramdown
