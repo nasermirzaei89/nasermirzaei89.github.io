@@ -97,3 +97,5 @@ feed:
 
 theme: minima
 
+disqus:
+    shortname: nasermirzaei89-net
