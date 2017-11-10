@@ -6,4 +6,4 @@ Note that my english writing is not very good, so feel free to send feedback abo
 
 Also i will edit my old blogs when it need :wink:
 
-Goodluck
+Good luck
