@@ -18,7 +18,7 @@ When people know what to expect, they tend to lose interest. Because daily stand
 {% include youtube.html id="gxMZgeBlqzQ" %}
 
 ### Step 3: Three Questions
-Scrum-style stand-ups convene daily to re-plan in-progress development.[7] Though it may not be practical to limit all discussion to these three questions, the objective is to create a new sprint plan within the time box (less than 15 minutes), while deferring discussions about impediments until after the event is complete. Team members briefly (a maximum of one minute per team member) address three questions as input to this planning:
+Scrum-style stand-ups convene daily to re-plan in-progress development. Though it may not be practical to limit all discussion to these three questions, the objective is to create a new sprint plan within the time box (less than 15 minutes), while deferring discussions about impediments until after the event is complete. Team members briefly (a maximum of one minute per team member) address three questions as input to this planning:
 
 1. What did I do yesterday (last meeting) that helped the development team meet the sprint goal?
 2. What will I do today (until the next meeting) to help the development team meet the sprint goal?
