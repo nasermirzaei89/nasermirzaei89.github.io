@@ -3,7 +3,7 @@ url: "http://nasermirzaei89.net"
 logo: "/assets/logo.png"
 email: nasermirzaei89@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  About me
+        I am a Gopher (Golang Developer)
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: nasermirzaei89
 github_username:  nasermirzaei89
