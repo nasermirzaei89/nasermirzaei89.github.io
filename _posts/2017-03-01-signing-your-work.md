@@ -9,19 +9,69 @@ Git is cryptographically secure, but it’s not foolproof. If you’re taking wo
 
 First of all, if you want to sign anything you need to get GPG configured and your personal key installed.
 
+```bash
+gpg --list-keys
 ```
-$ gpg --list-keys
-/Users/nasermirzaei89/.gnupg/pubring.gpg
----------------------------------
-pub 2048R/0A46826A 2014–06–04
-uid Naser Mirzaei (Git signing key) <nasermirzaei89@gmail.com>
-sub 2048R/874529A9 2014–06–04
+
+Output:
+
+```
+/home/nasermirzaei89/.gnupg/pubring.gpg
+---------------------------------------
+pub   2048R/0857423A 2017-03-01
+uid                  Naser Mirzaei <nasermirzaei89@gmail.com>
+sub   2048R/8369A0DC 2017-03-01
 ```
 
 If you don’t have a key installed, you can generate one with `gpg --gen-key`:
 
 ```bash
 gpg --gen-key
+```
+
+Steps:
+```
+gpg (GnuPG) 1.4.20; Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+gpg: keyring `/home/nasermirzaei89/.gnupg/secring.gpg' created
+Please select what kind of key you want:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (sign only)
+   (4) RSA (sign only)
+Your selection? 
+RSA keys may be between 1024 and 4096 bits long.
+What keysize do you want? (2048) 
+Requested keysize is 2048 bits
+Please specify how long the key should be valid.
+         0 = key does not expire
+      <n>  = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+Key is valid for? (0) 
+Key does not expire at all
+Is this correct? (y/N) y
+
+You need a user ID to identify your key; the software constructs the user ID
+from the Real Name, Comment and Email Address in this form:
+    "Heinrich Heine (Der Dichter) <heinrichh@duesseldorf.de>"
+
+Real name: Naser Mirzaei
+Email address: nasermirzaei89@gmail.com
+Comment: 
+You selected this USER-ID:
+    "Naser Mirzaei <nasermirzaei89@gmail.com>"
+
+Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
+You need a Passphrase to protect your secret key.
+
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
 ```
 
 If you got an error like this:
@@ -39,7 +89,7 @@ ls / -R
 Once you have a private key to sign with, you can configure Git to use it for signing things by setting the `user.signingkey` config setting.
 
 ```bash
-git config --global user.signingkey 0A46826A
+git config --global user.signingkey 0857423A
 ```
 
 Now Git will use your key by default to sign tags and commits if you want.
