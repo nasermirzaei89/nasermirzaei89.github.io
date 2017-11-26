@@ -245,21 +245,22 @@ gpg --list-secret-keys --keyid-format LONG
 
 From the list of GPG keys, copy the GPG key ID you’d like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
 
+Output:
 ```
-$ gpg --list-secret-keys --keyid-format LONG 
-/Users/nasermirzaei89/.gnupg/secring.gpg
-------------------------------------
-sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+/home/nasermirzaei89/.gnupg/secring.gpg
+---------------------------------------
+sec   2048R/4E4E444D0857423A 2017-03-01
 uid                          Naser Mirzaei <nasermirzaei89@gmail.com>
-ssb   4096R/42B317FD4BA89E7A 2016-03-10
+ssb   2048R/0E098B718369A0DC 2017-03-01
 ```
 
-Paste the text below, substituting in the GPG key ID you’d like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
+Paste the text below, substituting in the GPG key ID you’d like to use. In this example, the GPG key ID is `4E4E444D0857423A`:
 
+```bash
+gpg --armor --export 4E4E444D0857423A
 ```
-$ gpg --armor --export 3AA5C34371567BD2
-# Prints the GPG key ID, in ASCII armor format
-```
+
+Prints the GPG key ID, in ASCII armor format
 
 Your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
 
