@@ -18,6 +18,8 @@ linkedin:
 instagram:
   username: nasermirzaei89
 
+permalink:     /:categories/:year/:month/:day/:title/
+
 defaults:
   - scope:
       path: ''
