@@ -1,11 +1,21 @@
 title: Naser Mirzaei
 url: 'http://nasermirzaei89.net'
 baseurl: ''
+
 author: Naser Mirzaei
+
 email: nasermirzaei89@gmail.com
+
 twitter:
   username: nasermirzaei89
+
 github:
+  username: nasermirzaei89
+
+linkedin:
+  username: nasermirzaei89
+
+instagram:
   username: nasermirzaei89
 
 defaults:
@@ -23,7 +33,7 @@ plugins:
   - jekyll-seo-tag
 
 feed:
-  path: feed.xml
+  path: /feed.xml
 
 disqus:
   shortname: nasermirzaei89-net

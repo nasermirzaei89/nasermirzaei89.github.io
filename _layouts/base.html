@@ -31,16 +31,22 @@
         <hr class="uk-margin-top">
         <ul class="uk-iconnav uk-flex-center">
             <li>
-                <a href="mailto:nasermirzaei89@gmail.com" uk-icon="icon: mail" title="Mail" uk-tooltip></a>
+                <a href="mailto:{{site.email}}" target="_blank" uk-icon="icon: mail" title="Mail" uk-tooltip></a>
             </li>
             <li>
-                <a href="https://github.com/nasermirzaei89" uk-icon="icon: github" title="Github" uk-tooltip></a>
+                <a href="https://github.com/{{site.github.username}}" target="_blank" uk-icon="icon: github" title="Github" uk-tooltip></a>
             </li>
             <li>
-                <a href="https://twitter.com/nasermirzaei89" uk-icon="icon: twitter" title="Twitter" uk-tooltip></a>
+                <a href="https://www.linkedin.com/in/{{site.linkedin.username}}" target="_blank" uk-icon="icon: linkedin" title="Linkedin" uk-tooltip></a>
             </li>
             <li>
-                <a href="/feed.xml" uk-icon="icon: rss" title="RSS" uk-tooltip></a>
+                <a href="https://twitter.com/{{site.twitter.username}}" target="_blank" uk-icon="icon: twitter" title="Twitter" uk-tooltip></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/{{site.instagram.username}}" target="_blank" uk-icon="icon: instagram" title="Instagram" uk-tooltip></a>
+            </li>
+            <li>
+                <a href="{{site.feed.path}}" uk-icon="icon: rss" title="RSS" uk-tooltip></a>
             </li>
         </ul>
         <div class="uk-text-right">
