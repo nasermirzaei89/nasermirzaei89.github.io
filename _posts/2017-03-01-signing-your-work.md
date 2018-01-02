@@ -268,7 +268,7 @@ Your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending w
 
 Signing tags and commits is great, but if you decide to use this in your normal workflow, you’ll have to make sure that everyone on your team understands how to do so. If you don’t, you’ll end up spending a lot of time helping people figure out how to rewrite their commits with signed versions. Make sure you understand GPG and the benefits of signing things before adopting this as part of your standard workflow.
 
-## Refrences
+## References
 
 * <https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work>
 * <https://help.github.com/articles/generating-a-new-gpg-key/>

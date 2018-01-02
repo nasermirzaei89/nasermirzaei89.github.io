@@ -14,7 +14,7 @@ sudo apt-get update
 sudo apt-get install oracle-java8-installer
 ```
 
-if an 503 error occured, you are so bad luck because of restrictred countries:
+if an 503 error occurred, you are so bad luck because of restricted countries:
 
 <http://www.oracle.com/us/products/export/export-regulations-345813.html>
 

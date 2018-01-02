@@ -1,0 +1,17 @@
+---
+layout: base
+---
+<section class="uk-container uk-container-small">
+    <article class="uk-article uk-padding uk-padding-remove-horizontal">
+        <h2 class="uk-article-title"><a href="{{post.url}}">{{page.title}}</a></h2>
+        <div class="uk-article-meta">{{page.date | date_to_string}}</div>
+
+        <div>{{page.content}}</div>
+
+        <ul class="uk-margin-top uk-text-center">
+            {% for tag in page.tags %}
+            <li class="uk-label">{{tag}}</li>
+            {% endfor %}
+        </ul>
+    </article>
+</section>
