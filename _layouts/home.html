@@ -2,10 +2,10 @@
 layout: base
 ---
 {% for post in site.posts %}
-<section class="uk-container uk-container-small">
+<div class="uk-container uk-container-small">
     <article class="uk-article uk-padding uk-padding-small uk-padding-remove-horizontal" uk-scrollspy="cls: uk-animation-fade">
         <h2 class="uk-article-title"><a href="{{post.url}}">{{post.title}}</a></h2>
         <span class="uk-article-meta">{{post.date | date_to_string}}</span>
     </article>
-</section>
+</div>
 {% endfor %}
