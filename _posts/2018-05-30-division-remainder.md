@@ -16,7 +16,7 @@ if (p1Choice == Rock && p2Choice == Paper)
 // and 6 more if to check all states
 ```
 
-Therefore, I ////tried to think and find an algorithm to write a shorter way to check who wins, and I found a solution:
+Therefore, I tried to think and find an algorithm to write a shorter way to check who wins, and I found a solution:
 
 First, give a number to each element.
 `
@@ -40,10 +40,10 @@ switch (Result)
         break;
 }
 ```
-In some cases result of subtraction in ////that expression will be negative. So, I checked the value of division with a negative dividend in C# and I wondered the remainder was negative. I checked formula for [integer devision](https://en.wikipedia.org/wiki/Remainder) and I made sure that the remainder valid range is between zero and absolute of divisor: `0 ≤ r < |d|`.
+In some cases result of subtraction in that expression will be negative. So, I checked the value of division with a negative dividend in C# and I wondered the remainder was negative. I checked formula for [integer devision](https://en.wikipedia.org/wiki/Remainder) and I made sure that the remainder valid range is between zero and absolute of divisor: `0 ≤ r < |d|`.
 I checked my favorite Golang, to see the result:
 
-https://play.golang.org/p/9yuhk1IKSgE
+[https://play.golang.org/p/9yuhk1IKSgE]()
 
 but the remainder was negative.
 
@@ -54,6 +54,6 @@ I checked JavaScript, but the remainder was negative.
 I didn't check other languages.
 
 I checked the source of mod function in golang and found it should not be remainder of the division:
-https://github.com/golang/go/blob/release-branch.go1.10/src/math/mod.go#L23
+[https://github.com/golang/go/blob/release-branch.go1.10/src/math/mod.go#L23]()
 
 To be continued...
