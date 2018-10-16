@@ -40,7 +40,7 @@ switch (Result)
         break;
 }
 ```
-In some cases result of subtraction in that expression will be negative. So, I checked the value of division with a negative dividend in C# and I wondered the remainder was negative. I checked formula for [integer devision](https://en.wikipedia.org/wiki/Remainder) and I made sure that the remainder valid range is between zero and absolute of divisor: `0 ≤ r < |d|`.
+In some cases, the result of subtraction in that expression will be negative. So, I checked the value of division with a negative dividend in C# and I wondered the remainder was negative. I checked formula for [integer devision](https://en.wikipedia.org/wiki/Remainder) and I made sure that the remainder valid range is between zero and absolute of divisor: `0 ≤ r < |d|`.
 I checked my favorite Golang, to see the result:
 
 [https://play.golang.org/p/9yuhk1IKSgE]()

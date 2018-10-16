@@ -11,7 +11,7 @@ Most people have heavy argue with their partner, but simpler argue with their fr
 Because partners **expect** from each other. Yes, this is the only thing that causes to a heavy argument in couples.
 
 We have long life friends, but our relationship with our love is about six month.
-Many girls/boys were our social friends; but when they became our love our relation broke.
+Many girls/boys were our social friends, but when they became our love our relation broke.
 
 Why we can be in a long relationship with our social friends with short annoyance; but we cut with our love very fast?
 

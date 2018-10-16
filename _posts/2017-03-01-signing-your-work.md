@@ -41,9 +41,9 @@ Please select what kind of key you want:
    (2) DSA and Elgamal
    (3) DSA (sign only)
    (4) RSA (sign only)
-Your selection? 
+Your selection?
 RSA keys may be between 1024 and 4096 bits long.
-What keysize do you want? (2048) 
+What keysize do you want? (2048)
 Requested keysize is 2048 bits
 Please specify how long the key should be valid.
          0 = key does not expire
@@ -51,7 +51,7 @@ Please specify how long the key should be valid.
       <n>w = key expires in n weeks
       <n>m = key expires in n months
       <n>y = key expires in n years
-Key is valid for? (0) 
+Key is valid for? (0)
 Key does not expire at all
 Is this correct? (y/N) y
 
@@ -61,7 +61,7 @@ from the Real Name, Comment and Email Address in this form:
 
 Real name: Naser Mirzaei
 Email address: nasermirzaei89@gmail.com
-Comment: 
+Comment:
 You selected this USER-ID:
     "Naser Mirzaei <nasermirzaei89@gmail.com>"
 
@@ -188,7 +188,7 @@ Date: Wed Jun 4 19:49:17 2014 -0700
 signed commit
 ```
 
-Additionally, you can configure `git log` to check any signatures it finds and list them in it’s output with the `%G?` format.
+Additionally, you can configure `git log` to check any signatures it finds and list them in its output with the `%G?` format.
 
 ```
 $ git log --pretty="format:%h %G? %aN %s"
@@ -266,7 +266,7 @@ Your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending w
 
 ## Everyone Must Sign
 
-Signing tags and commits is great, but if you decide to use this in your normal workflow, you’ll have to make sure that everyone on your team understands how to do so. If you don’t, you’ll end up spending a lot of time helping people figure out how to rewrite their commits with signed versions. Make sure you understand GPG and the benefits of signing things before adopting this as part of your standard workflow.
+Signing tags and commits are great, but if you decide to use this in your normal workflow, you’ll have to make sure that everyone on your team understands how to do so. If you don’t, you’ll end up spending a lot of time helping people figure out how to rewrite their commits with signed versions. Make sure you understand GPG and the benefits of signing things before adopting this as part of your standard workflow.
 
 ## References
 

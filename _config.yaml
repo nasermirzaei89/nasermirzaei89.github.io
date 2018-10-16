@@ -18,7 +18,7 @@ linkedin:
 instagram:
   username: nasermirzaei89
 
-permalink:     /:categories/:year/:month/:day/:title/
+permalink: /:categories/:year/:month/:day/:title/
 
 defaults:
   - scope:
