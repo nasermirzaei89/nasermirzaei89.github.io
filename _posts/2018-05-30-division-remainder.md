@@ -1,5 +1,5 @@
 ---
-tags: Programming, Math
+tags: Programming Math
 ---
 
 I had decided to make an online Rock Paper Scissors game, to make myself ready for greater games. I’m a backend developer, and I haven’t enough abilities and experience for creating games. So, I started to learn Unity3D, and I searched youtube for creating Rock Paper Scissors. I watched about 2 videos, and I saw they write long if statements for checking who wins.
