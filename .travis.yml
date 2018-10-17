@@ -1,6 +1,8 @@
 language: ruby
 
 cache: bundler
+before_install:
+  - sudo update-ca-certificates
 install:
   - bundle install
 script:
@@ -10,4 +12,4 @@ env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
 
-sudo: false # route your build to the container-based infrastructure for a faster build
+sudo: required # route your build to the container-based infrastructure for a faster build
