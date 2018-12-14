@@ -23,6 +23,16 @@ go mod init github.com/user/hello-world
 ```
 Use your own repo url for module.
 
+If you are in `$GOPATH` you will get this message:
+```
+go: modules disabled inside GOPATH/src by GO111MODULE=auto; see 'go help modules'
+```
+
+You can get rid of this message by changing this environment variable to `on`:
+```bash
+export GO111MODULE=on
+```
+
 A `go.mod` file created in your repository.
 ```bash
 cat go.mod
