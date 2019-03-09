@@ -30,6 +30,7 @@ gpg --gen-key
 ```
 
 Steps:
+
 ```
 gpg (GnuPG) 1.4.20; Copyright (C) 2015 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
@@ -246,6 +247,7 @@ gpg --list-secret-keys --keyid-format LONG
 From the list of GPG keys, copy the GPG key ID you’d like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
 
 Output:
+
 ```
 /home/nasermirzaei89/.gnupg/secring.gpg
 ---------------------------------------

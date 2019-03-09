@@ -32,4 +32,4 @@ sudo apt-get install google-chrome-stable
 
 At the end you can read this article for the difference between Google Chrome and Chromium:
 
-<https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md>
+[Chromium Browser vs Google Chrome](https://chromium.googlesource.com/chromium/src/+/master/docs/chromium_browser_vs_google_chrome.md)
