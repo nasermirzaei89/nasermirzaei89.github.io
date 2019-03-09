@@ -1,5 +1,6 @@
 ---
 tags: Lifestyle
+description: Treat your love like your social friends
 ---
 
 You have many friends. boys, and girls.

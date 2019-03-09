@@ -1,5 +1,6 @@
 ---
 tags: Ubuntu Google_Chrome Chromium Proxy
+description: You will learn how to install google chrome instead of chromium on ubuntu.
 ---
 ![Install Google Chrome on Ubuntu]({{ "/assets/ubuntu_16.04_xenial_chrome_browser.png" | absolute_url }})
 

@@ -1,5 +1,6 @@
 ---
 tags: git github signing GPG
+description: Git is cryptographically secure, but it’s not foolproof. If you’re taking work from others on the internet and want to verify that commits are actually from a trusted source, Git has a few ways to sign and verify work using GPG.
 ---
 ![Git]({{ "/assets/git-logo.png" | absolute_url }})
 

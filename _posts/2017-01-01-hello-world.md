@@ -1,10 +1,11 @@
 ---
 tags: Blog
+description: I will write everything I learned about my occupation and lifestyle
 ---
-Welcome to my personal website. I'm **Naser Mirzaei** and I will write everything I learned in my life about my occupation.
+Welcome to my personal website. I'm **Naser Mirzaei** and I will write everything I learned about my occupation and lifestyle.
 
-Note that my English writing is not very good, so feel free to send feedback about my posts.
+Feel free to send feedback about my posts.
 
-Also, I will edit my old posts when it needs :wink:
+Also, I will edit my old posts when it needs. :wink:
 
 Good luck!

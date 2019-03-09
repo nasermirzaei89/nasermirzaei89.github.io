@@ -1,5 +1,6 @@
 ---
 tags: Kubernetes
+description: Are your namespace stock at terminating state? use this solution to get rid of it!
 ---
 
 ## Problem

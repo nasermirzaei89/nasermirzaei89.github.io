@@ -1,5 +1,6 @@
 ---
 tags: Goland Docker Alpine
+description: Dockerize your golang application for simpler deployment
 ---
 
 Docker is so popular these days. It's so good to build your go applications in docker. Here I show you how to build a go application in docker without even installing golang on your machine.

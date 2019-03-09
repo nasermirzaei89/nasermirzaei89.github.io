@@ -1,5 +1,6 @@
 ---
 tags: GitLab Continous_Integration Continous_Delivery Gitlab_CI Deployment
+description: My Gitlab CI file after 3 years using of gitlab
 ---
 
 ## Problem
@@ -14,7 +15,7 @@ So, let's do these steps to have a complete ci/cd process:
 
 ### Step 0
 
-First of all you should use [Git](https://git-scm.com) for version control and [Docker](https://www.docker.com/) for containerize your builds and etc.
+First of all, you should use [Git](https://git-scm.com) for version control and [Docker](https://www.docker.com/) for containerize your builds and etc.
 If you haven't used them yet, you're not a developer! Shame on you :unamused:
 
 I assume I have a simple web server in [Golang](https://golang.org) and want to deploy it on a [Kubernetes](https://kubernetes.io) cluster in both staging and production environment.
@@ -24,25 +25,25 @@ There are many flows for coding and deployment such as [Git Flow](https://datasi
 
 I often use this flow or a simpler one:
 
-1. Develop a feature or fix a bug in a branch (custom name or create branch from a gitlab issue)
+1. Develop a feature or fix a bug in a branch (custom name or create a branch from a gitlab issue)
 1. Send a merge request to master and merge it if all CI steps passed.
-1. Deploy the latest commit of master to staging environment
-1. Tag a commit on master and deploy it to production if I want to release new version
+1. Deploy the latest commit of master to the staging environment
+1. Tag a commit on master and deploy it to production if I want to release a new version
 
-In this flow I always test new features on staging before release. If I find a small bug in production, I will fix it and release a new version. Or if I find a big bug, I will deploy an older version, and release a new version when I fix the bug. I really suggest staging to prevent testing in production.
+In this flow, I always test new features on staging before release. If I find a small bug in production, I will fix it and release a new version. Or if I find a big bug, I will deploy an older version, and release a new version when I fix the bug. I really suggest staging to prevent testing in production.
 
-> Remember that staging is an environment to test current project, not projects that use it. For example the staging environment of a rest is not for test the android application that uses this rest!
+> Remember that staging is an environment to test the current project, not projects that use it. For example, the staging environment of rest is not to test the android application that uses this rest!
 
 ### Step 2: Write GitLab CI file
 
-As I said before, you should use docker to build and containerize your application. I wrote a [Blog Post](https://nasermirzaei89.net/2018/12/25/dockerize-go-application/) befor for dockerizing a go application.
+As I said before, you should use Docker to build and containerize your application. I wrote a [Blog Post](https://nasermirzaei89.net/2018/12/25/dockerize-go-application/) before for dockerizing a go application.
 
 Add a `.gitlab-ci.yml` file to your project:
 ```sh
 touch .gitlab-ci.yml
 ```
 
-You should have 4 stage in your CI:
+You should have 4 stages in your CI:
 
 * Lint
 * Build
@@ -82,7 +83,7 @@ Lint:
 ```
 
 As you see, this step will run on every branch except master.
-Also I have a pre-made image for linting based on [GoMetaLinter](https://github.com/alecthomas/gometalinter). So my lint script can run without fetching dependencies.
+Also, I have a pre-made image for linting based on [GoMetaLinter](https://github.com/alecthomas/gometalinter). So my lint script can run without fetching dependencies.
 
 > You can add a pre-commit hook to check lint step on your local repo before gitlab!
 
@@ -102,7 +103,7 @@ Build:
 
 I always use a version of golang that is installed on my development pc.
 
-As you see, this step is also excluded from master branch. because I only check whether my code builds or not, and leave the binary alone after build.
+As you see, this step is also excluded from the master branch. because I only check whether my code builds or not, and leave the binary alone after every build.
 
 #### Test
 
@@ -118,7 +119,7 @@ Test:
   - master
 ```
 
-You can split this step to multiple step if you have seperated tests:
+You can split this step to multiple steps if you have separate tests:
 
 ```yml
 Unit Test:
@@ -140,13 +141,13 @@ Acceptance Test:
 # Other tests...
 ```
 
-After these steps your code may merge to master. You can prevent code to merge before passing ci in your project settings page.
+After these steps, your code may merge to master. You can prevent code to merge before passing ci in your project settings page.
 
 Now your code merged to master it's time to run CI jobs on this branch.
 
 #### Build Image Latest
 
-in this step you should build an image for staging environment:
+in this step you should build an image for the staging environment:
 
 ```yml
 # Staging
@@ -162,13 +163,13 @@ Build Image Latest:
   - master
 ```
 
-In this step we use docker for building image, so we must use docker image.
+In this step we use Docker for building an image, so we must use a docker image.
 
-At the first script we assume to use our gitlab registry to push our image to it. So, we must login to this registry before build and push. `$CI_JOB_TOKEN` is a token to login in your gitlab registry and `$CI_REGISTRY` is address of the registry.
+At the first script, we assume to use our gitlab registry to push our image to it. So, we must log in to this registry before build and push. `$CI_JOB_TOKEN` is a token to login in your gitlab registry and `$CI_REGISTRY` is the address of the registry.
 
-After login we build our image with tage name that contains `$CI_REGISTRY_IMAGE` and docker tag `latest`. for example this will be: `registry.nasermirzaei89.net/myproject/api:latest`
+After login, we build our image with a tag name that contains `$CI_REGISTRY_IMAGE` and docker tag `latest`. for example, this will be: `registry.nasermirzaei89.net/myproject/api:latest`
 
-At the end we push the image to registry. Now you can check your registry to see your new image created with `latest` tag.
+At the end, we push the image to the registry. Now you can check your registry to see your new image created with `latest` tag.
 
 #### Deploy Staging
 
@@ -185,7 +186,7 @@ Deploy Staging:
 ```
 
 Again, I used a pre-made image for a step. As you see, I deploy my code to a kubernetes cluster by kubectl.
-I built this image with config of my cluster.
+I built this image with the config of my cluster.
 So, it connects to my cluster without requesting authorization info.
 Also, I used a template file for deploying on kubernetes and replaced variables with `sed` command.
 
@@ -207,12 +208,12 @@ Build Image Tag:
   - tags
 ```
 
-`$CI_COMMIT_TAG` is the name of tag, eg. `v1.2.0`.
+`$CI_COMMIT_TAG` is the name of the tag, eg. `v1.2.0`.
 And not that this step only runs on `tags`
 
-after passing this build stage on tag, see the registery section on your gitlab to make sure the image has been built with the expected tag.
+after passing this build stage on a tag, see the registry section on your gitlab to make sure the image has been built with the expected tag.
 
-Be carefull that you said run on master or except master in last steps, so many of them will run on `tags`. You need to exclude them from tags to prevent running them on tagging a version.
+Be careful that you said to run on master or except master in last steps so many of them will run on `tags`. You need to exclude them from tags to prevent running them on tagging a version.
 Add this to all last steps
 ```yml
   except:
@@ -236,7 +237,7 @@ Deploy Production:
 
 You can see I used `$CI_COMMIT_TAG` instead of `latest` in my variable replacement.
 
-Also this step is `manual` and you must play it manualy. So, when you want to revert to an earlier version, you can play `Deploy Production` job on that version in pipelines, and that version will deploy to production.
+Also, this step is `manual` and you must play it manually. So, when you want to revert to an earlier version, you can play `Deploy Production` job on that version in pipelines, and that version will deploy to production.
 
 Your `.gitlab-ci.yml` file at a glance:
 

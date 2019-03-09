@@ -1,6 +1,7 @@
 ---
 title: Stand-up Meeting
 tags: Stand_Up Team_Work Agile Scrum Kanban Development
+description: A stand-up meeting (or simply stand-up) is a meeting in which attendees typically participate while standing. The discomfort of standing for long periods is intended to keep the meetings short.
 ---
 
 A **stand-up meeting** (or simply **stand-up**) is a meeting in which attendees typically participate while standing. The discomfort of standing for long periods is intended to keep the meetings short.

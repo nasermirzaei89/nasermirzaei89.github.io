@@ -1,6 +1,7 @@
 ---
 title: Install Oracle Java 8 (JDK8 and JRE8) in Ubuntu
 tags: Ubuntu Oracle Java Aptitude JDK
+description: How to install Oracle Java 8 on ubuntu in few steps.
 ---
 Currently, java stable version is 8.
 
