@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   site:
-    command: jekyll serve
+    command: jekyll serve --drafts
     image: jekyll/jekyll
     volumes:
       - $PWD:/srv/jekyll
