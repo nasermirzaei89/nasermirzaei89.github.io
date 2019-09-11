@@ -99,11 +99,11 @@ PLATFORMS
 
 DEPENDENCIES
   html-proofer
-  jekyll (~> 3.8.4)
+  jekyll (~> 3.8.6)
   jekyll-feed
   jekyll-seo-tag
   jekyll-sitemap
   jemoji
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
