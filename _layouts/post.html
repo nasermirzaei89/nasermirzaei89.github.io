@@ -4,7 +4,10 @@ layout: base
 <div class="uk-container uk-container-small">
     <article class="uk-article uk-padding uk-padding-remove-horizontal">
         <h2 class="uk-article-title"><a href="{{page.url}}">{{page.title}}</a></h2>
-        <div class="uk-article-meta">📅 {{page.date | date_to_string}}</div>
+        <div class="uk-article-meta">
+            <span uk-icon="calendar"></span>
+            <span>{{page.date | date_to_string}}</span>
+        </div>
 
         <div>{{page.content}}</div>
 
