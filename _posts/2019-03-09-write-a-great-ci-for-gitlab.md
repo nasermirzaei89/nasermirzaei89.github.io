@@ -43,9 +43,8 @@ Add a `.gitlab-ci.yml` file to your project:
 touch .gitlab-ci.yml
 ```
 
-You should have 4 stages in your CI:
+You should have 3 stages in your CI:
 
-* Lint
 * Build
 * Test
 * Deploy
@@ -54,7 +53,6 @@ add them to your CI file:
 
 ```yml
 stages:
-  - Lint
   - Build
   - Test
   - Deploy
@@ -74,16 +72,17 @@ I always check my code is pretty linted only in development:
 # Development
 
 Lint:
-  stage: Lint
-  image: registry.nasermirzaei89.net/gitlab-ci/gometalinter:latest
+  stage: Test
+  image: golangci/golangci-lint:v1.21.0
   script:
-  - make lint
+    - make lint
   except:
-  - master
+    - master
+    - tags
 ```
 
 As you see, this step will run on every branch except master.
-Also, I have a pre-made image for linting based on [GoMetaLinter](https://github.com/alecthomas/gometalinter). So my lint script can run without fetching dependencies.
+I know that alpine images are smaller than default. But, I didn't use alpine because I need `Makefile` support.
 
 > You can add a pre-commit hook to check lint step on your local repo before gitlab!
 
@@ -94,14 +93,15 @@ After checking lint you should check that your code will build or not:
 ```yml
 Build:
   stage: Build
-  image: golang:1.12
+  image: golang:1.13
   script:
-  - make build
+    - make build
   except:
-  - master
+    - master
+    - tags
 ```
 
-I always use a version of golang that is installed on my development pc.
+I always use a version of Golang that is installed on my development pc.
 
 As you see, this step is also excluded from the master branch. because I only check whether my code builds or not, and leave the binary alone after every build.
 
@@ -112,11 +112,12 @@ Like lint step, we also should check our new code will pass all tests or not:
 ```yml
 Test:
   stage: Test
-  image: golang:1.12
+  image: golang:1.13
   script:
-  - make test
+    - make test
   except:
-  - master
+    - master
+    - tags
 ```
 
 You can split this step to multiple steps if you have separate tests:
@@ -126,17 +127,18 @@ Unit Test:
   stage: Test
   image: _MyUnitTesterImage_
   script:
-  - make unit-test
+    - make unit-test
   except:
-  - master
+    - master
 
 Acceptance Test:
   stage: Test
   image: _MyAcceptanceTesterImage_
   script:
-  - make acceptance-test
+    - make acceptance-test
   except:
-  - master
+    - master
+    - tags
 
 # Other tests...
 ```
@@ -155,12 +157,16 @@ in this step you should build an image for the staging environment:
 Build Image Latest:
   stage: Build
   image: docker
+  services:
+    - docker:dind
   script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-  - docker build --tag $CI_REGISTRY_IMAGE:latest .
-  - docker push $CI_REGISTRY_IMAGE:latest
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --tag $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
   only:
-  - master
+    - master
+  except:
+    - tags
 ```
 
 In this step we use Docker for building an image, so we must use a docker image.
@@ -180,9 +186,11 @@ Deploy Staging:
   stage: Deploy
   image: registry.nasermirzaei89.net/gitlab-ci/kubectl:latest
   script:
-  - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject-staging/g; s/{{TAG}}/latest/g; s/{{HOST}}/api.staging.myproject.nasermirzaei89.net/g" | kubectl apply -f -
+    - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject-staging/g; s/{{TAG}}/latest/g; s/{{HOST}}/api.staging.myproject.nasermirzaei89.net/g" | kubectl apply -f -
   only:
-  - master
+    - master
+  except:
+    - tags
 ```
 
 Again, I used a pre-made image for a step. As you see, I deploy my code to a kubernetes cluster by kubectl.
@@ -194,18 +202,20 @@ Now it's time to release!
 
 #### Release a Tag
 
-When you want to add a tag to a commit for versioning you should create an image from this tag automatically:
+When you want to add a tag to a commit for a version, you should create an image from this tag automatically:
 
 ```yml
 Build Image Tag:
   stage: build
   image: docker
+  services:
+    - docker:dind
   script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-  - docker build --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
-  - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
   only:
-  - tags
+    - tags
 ```
 
 `$CI_COMMIT_TAG` is the name of the tag, eg. `v1.2.0`.
@@ -217,7 +227,7 @@ Be careful that you said to run on master or except master in last steps so many
 Add this to all last steps
 ```yml
   except:
-  - tags
+    - tags
 ```
 
 #### Deploy Production
@@ -229,10 +239,10 @@ Deploy Production:
   stage: Deploy
   image: registry.nasermirzaei89.net/gitlab-ci/kubectl:latest
   script:
-  - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject/g; s/{{TAG}}/$CI_COMMIT_TAG/g; s/{{HOST}}/api.myproject.nasermirzaei89.net/g" | kubectl apply -f -
+    - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject/g; s/{{TAG}}/$CI_COMMIT_TAG/g; s/{{HOST}}/api.myproject.nasermirzaei89.net/g" | kubectl apply -f -
   when: manual
   only:
-  - tags
+    - tags
 ```
 
 You can see I used `$CI_COMMIT_TAG` instead of `latest` in my variable replacement.
@@ -243,7 +253,6 @@ Your `.gitlab-ci.yml` file at a glance:
 
 ```yml
 stages:
-  - Lint
   - Build
   - Test
   - Deploy
@@ -251,77 +260,81 @@ stages:
 # Development
 
 Lint:
-  stage: Lint
-  image: registry.nasermirzaei89.net/gitlab-ci/gometalinter:latest
+  stage: Test
+  image: golangci/golangci-lint:v1.21.0
   script:
-  - make lint
+    - make lint
   except:
-  - master
-  - tags
+    - master
+    - tags
 
 Build:
   stage: Build
-  image: golang:1.12
+  image: golang:1.13
   script:
-  - make build
+    - make build
   except:
-  - master
-  - tags
+    - master
+    - tags
 
 Test:
   stage: Test
-  image: golang:1.12
+  image: golang:1.13
   script:
-  - make test
+    - make test
   except:
-  - master
-  - tags
+    - master
+    - tags
 
 # Staging
 
 Build Image Latest:
   stage: Build
   image: docker
+  services:
+    - docker:dind
   script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-  - docker build --tag $CI_REGISTRY_IMAGE:latest .
-  - docker push $CI_REGISTRY_IMAGE:latest
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --tag $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
   only:
-  - master
+    - master
   except:
-  - tags
+    - tags
 
 Deploy Staging:
   stage: Deploy
   image: registry.nasermirzaei89.net/gitlab-ci/kubectl:latest
   script:
-  - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject-staging/g; s/{{TAG}}/latest/g; s/{{HOST}}/api.staging.myproject.nasermirzaei89.net/g" | kubectl apply -f -
+    - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject-staging/g; s/{{TAG}}/latest/g; s/{{HOST}}/api.staging.myproject.nasermirzaei89.net/g" | kubectl apply -f -
   only:
-  - master
+    - master
   except:
-  - tags
+    - tags
 
 Build Image Tag:
   stage: build
   image: docker
+  services:
+    - docker:dind
   script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-  - docker build --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
-  - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
   only:
-  - tags
+    - tags
 
 Deploy Production:
   stage: Deploy
   image: registry.nasermirzaei89.net/gitlab-ci/kubectl:latest
   script:
-  - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject/g; s/{{TAG}}/$CI_COMMIT_TAG/g; s/{{HOST}}/api.myproject.nasermirzaei89.net/g" | kubectl apply -f -
+    - cat kubernetes.tpl.yml | sed "s/{{NAMESPACE}}/myproject/g; s/{{TAG}}/$CI_COMMIT_TAG/g; s/{{HOST}}/api.myproject.nasermirzaei89.net/g" | kubectl apply -f -
   when: manual
   only:
-  - tags
+    - tags
 ```
 
 It's my GitLab CI file in most projects. But it may be simpler or more complex in some projects.
-Also, you may have tags for your runners. So, you must add tags to select a runner in your steps.
+Also, you might have tags for your runners. So, you must add tags to select a runner in your steps.
 
-Love automation and make development enjoyful!
+Love automation and make development enjoyable!
