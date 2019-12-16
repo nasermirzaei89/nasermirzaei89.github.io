@@ -39,7 +39,7 @@ kubectl cluster-info
 Then run this command:
 
 ```sh
-curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json https://[IP]:[PORT]/api/v1/namespaces/approo/finalize
+curl -k -H "Content-Type: application/json" -X PUT --data-binary @tmp.json http(s)://[IP]:[PORT]/api/v1/namespaces/[NAMESPACE]/finalize
 ```
 
 Make sure to use your cluster address!
