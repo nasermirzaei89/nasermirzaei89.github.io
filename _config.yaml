@@ -19,6 +19,9 @@ linkedin:
 instagram:
   username: nasermirzaei89
 
+telegram:
+  username: nasermirzaei89
+
 permalink: /:categories/:year/:month/:day/:title/
 
 defaults:
