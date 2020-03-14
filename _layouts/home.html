@@ -1,14 +1,11 @@
 ---
 layout: base
 ---
-{% for post in site.posts %}
-<div class="uk-container uk-container-small">
-    <article class="uk-article uk-padding uk-padding-small uk-padding-remove-horizontal" uk-scrollspy="cls: uk-animation-fade">
-        <h2 class="uk-article-title"><a href="{{post.url}}">{{post.title}}</a></h2>
-        <div class="uk-article-meta">
-            <span uk-icon="calendar"></span>
-            <span>{{post.date | date_to_string}}</span>
-        </div>
+<section>
+    {% for post in site.posts %}
+    <article>
+        <h1><a href="{{post.url}}">{{post.title}}</a></h1>
+        <time>{{post.date | date_to_string}}</time>
     </article>
-</div>
-{% endfor %}
+    {% endfor %}
+</section>

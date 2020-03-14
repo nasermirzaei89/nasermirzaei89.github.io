@@ -22,11 +22,11 @@ Therefore, I tried to think and find an algorithm to write a shorter way to chec
 
 First, give a number to each element.
 
-`‍‍``
+```csharp
 Rock = 1
 Paper = 2
 Scissors = 3
-`‍``
+```
 
 Then, check result of this expression:
 
