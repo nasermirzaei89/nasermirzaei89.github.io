@@ -275,5 +275,5 @@ Signing tags and commits are great, but if you decide to use this in your normal
 
 * <https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work>
 * <https://help.github.com/articles/generating-a-new-gpg-key/>
-* <http://stackoverflow.com/questions/11708334/pgp-asymmetric-not-enough-random-bytes-available-please-do-some-other-work-to>
+* <https://stackoverflow.com/questions/11708334/pgp-asymmetric-not-enough-random-bytes-available-please-do-some-other-work-to>
 * <https://gist.github.com/alopresto/b8d940197b4c314e27188a6852198d2d>
