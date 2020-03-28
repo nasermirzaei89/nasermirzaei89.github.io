@@ -4,7 +4,7 @@ cache: bundler
 before_install:
   - sudo update-ca-certificates
   - sudo apt-get install libcurl4-openssl-dev
-  - gem install bundler
+  - gem install bundler -v "$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1)
 install:
   - bundle install
 script:
