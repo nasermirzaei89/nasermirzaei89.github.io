@@ -25,7 +25,7 @@ layout: compress
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira+Code:300,400,500,600,700&display=swap">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira+Code:100,300,400,500,600,700&display=swap">
 
     {% seo %}
 
@@ -34,24 +34,26 @@ layout: compress
 
 <style>
     body {
-        font-family: 'Fira Code', monospace;
-        background-color: #171F24;
+        font-family: 'Fira Code', 'Courier New', monospace;
+        background-color: #111111;
         color: #DDDDDD;
     }
 
     #container {
         width: 100%;
         max-width: 800px;
-        margin: 1em auto;
+        margin: 1rem auto;
     }
 
     body header, body main, body footer {
-        padding: 0 1em;
+        padding: 0 1rem;
     }
 
     body footer {
+        text-align: center;
         border-top: 1px solid #DDDDDD;
-        padding-top: 1em;
+        padding-top: 1rem;
+        margin-top: 1rem;
     }
 
     img {
@@ -67,22 +69,22 @@ layout: compress
     }
 
     pre {
-        border: 1px solid #A9A9A9;
-        padding: 1em;
+        border: 1px solid #0074D9;
+        padding: 1rem;
         overflow-x: scroll;
-        background-color: #000000;
+        background-color: #001f3f;
         font-weight: lighter;
     }
 
     p code {
-        background-color: #000000;
+        background-color: #001f3f;
     }
 
     .tag {
         border: 2px dotted;
-        padding: 0 1em;
+        padding: 0 1rem;
         font-weight: bold;
-        line-height: 2em;
+        line-height: 2rem;
     }
 
     time {
@@ -108,7 +110,7 @@ layout: compress
         <a href="https://linkedin.com/in/{{site.linkedin.username}}" target="_blank">LinkedIn</a>
         <a href="https://twitter.com/{{site.twitter.username}}" target="_blank">Twitter</a>
         <a href="https://t.me/{{site.telegram.username}}" target="_blank">Telegram</a>
-        <a href="{{site.feed.path}}" uk-icon="icon: rss">RSS</a>
+        <a href="{{site.feed.path}}">RSS</a>
     </footer>
 </div>
 </body>
