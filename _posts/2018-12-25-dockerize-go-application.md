@@ -5,7 +5,7 @@ description: Dockerize your golang application for simpler deployment
 
 Docker is so popular these days. It's so good to build your go applications in docker. Here I show you how to build a go application in docker without even installing golang on your machine.
 
-## Write the application
+## Write the Application
 
 I use previous post application: [Here](/2018/12/14/using-go-modules/) :smile:
 
@@ -109,9 +109,9 @@ Output:
 {"message":"pong"}
 ```
 
-## Reduce image size
+## Reduce Image Size
 
-### Separate build and run images
+### Separate Build and Run Images
 
 Golang 1.11 image is `775MB`. You can only use this image or newer as the builder image. Edit `Dockerfile`:
 
@@ -136,7 +136,7 @@ Note: you must set `CGO_ENABLED=0` on build binary, because, you can't run it in
 
 Now image size decreased to `19.2MB`.
 
-### Strip the binary
+### Strip the Binary
 
 We can use the `-s` and `-w` linker flags to strip the debugging information. Edit `Dockerfile` and change build line:
 
@@ -155,7 +155,7 @@ CMD ["/hello-world"]
 
 Now check the image size. it's `15.6MB`.
 
-## Cache vendors
+## Cache Vendors
 
 On every build, build stage will download vendors. You can cache this step by doing a trick in your `Dockerfile`. Add an extra stage to it:
 

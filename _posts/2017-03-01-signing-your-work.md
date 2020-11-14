@@ -8,7 +8,7 @@ Git is cryptographically secure, but it’s not foolproof. If you’re taking wo
 
 ## GPG Introduction
 
-First of all, if you want to sign anything you need to get GPG configured and your personal key installed.
+First of all, if you want to sign anything you need to get GPG configured, and your personal key installed.
 
 ```bash
 gpg --list-keys
@@ -204,7 +204,7 @@ Here we can see that only the latest commit is signed and valid and the previous
 
 In Git 1.8.3 and later, `git merge` and `git pull` can be told to inspect and reject when merging a commit that does not carry a trusted GPG signature with the `--verify-signatures` command.
 
-If you use this option when merging a branch and it contains commits that are not signed and valid, the merge will not work.
+If you use this option when merging a branch, and it contains commits that are not signed and valid, the merge will not work.
 
 ```
 $ git merge --verify-signatures non-verify
@@ -269,7 +269,7 @@ Your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending w
 
 ## Everyone Must Sign
 
-Signing tags and commits are great, but if you decide to use this in your normal workflow, you’ll have to make sure that everyone on your team understands how to do so. If you don’t, you’ll end up spending a lot of time helping people figure out how to rewrite their commits with signed versions. Make sure you understand GPG and the benefits of signing things before adopting this as part of your standard workflow.
+Signing tags and commits are great, but if you decide to use this in your normal workflow, you’ll have to make sure everyone on your team understands how to do so. If you don’t, you’ll end up spending a lot of time helping people figure out how to rewrite their commits with signed versions. Make sure you understand GPG, and the benefits of signing things before adopting this as part of your standard workflow.
 
 ## References
 

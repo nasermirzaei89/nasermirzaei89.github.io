@@ -1,9 +1,9 @@
 ---
 tags: Golang Go_Modules Programming Dependency_Management
-description: Usign go modules to using golang dependencies simpler and more efficient
+description: Using go modules to using golang dependencies simpler and more efficient
 ---
 
-## What's this?
+## What's This?
 
 Go 1.11 includes preliminary support for versioned modules.
 Modules are an experimental opt-in feature in Go 1.11, with the hope of incorporating feedback and finalizing the feature for Go 1.12.
@@ -27,7 +27,7 @@ Now, you can initialize you go project with:
 go mod init github.com/user/hello-world
 ```
 
-Use your own repo url for module.
+Use your own repo url for the module.
 
 If you are in `$GOPATH` you will get this message:
 
@@ -75,7 +75,7 @@ func main() {
 
 Save this code as `main.go` in your project.
 
-# It's time to show
+# It's Time to Show Off
 
 You don't need to do extra works, just build your project:
 

@@ -57,9 +57,7 @@ kubectl proxy
 // Starting to serve on 127.0.0.1:8001
 ```
 
-::: tip
-Note: this command won't finish. So you can use `&` at the end, or continue in a new terminal.
-:::
+> this command won't finish. So you can use `&` at the end, or continue in a new terminal.
 
 Then, run the last command again, and use proxy IP and Port.
 

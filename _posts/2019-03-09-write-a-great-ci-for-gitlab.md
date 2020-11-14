@@ -1,5 +1,5 @@
 ---
-tags: GitLab Continous_Integration Continous_Delivery Gitlab_CI Deployment
+tags: GitLab Continuous_Integration Continuous_Delivery Gitlab_CI Deployment
 description: My Gitlab CI file after 3 years using of gitlab
 ---
 
@@ -9,18 +9,18 @@ When you develop an application or service, you need to test it in a production-
 These steps are a bit hard and annoying if you do all of them manually. So you need a full-time person to do them even at midnight.
 
 ## Solution
-[GitLab](https://gitlab.com) (and also [GitHub](https://github.com)) has a great tool for automating Deployment named [Gitlab-CI](https://about.gitlab.com/product/continuous-integration/). I don't want to introduce them. You can read their documentation and about sections if you want!
+[GitLab](https://gitlab.com) (and [GitHub](https://github.com)) has a great tool for automating Deployment named [Gitlab-CI](https://about.gitlab.com/product/continuous-integration/). I don't want to introduce them. You can read their documentation and about sections if you want!
 
 So, let's do these steps to have a complete ci/cd process:
 
 ### Step 0
 
-First of all, you should use [Git](https://git-scm.com) for version control and [Docker](https://www.docker.com/) for containerize your builds and etc.
+First of all, you should use [Git](https://git-scm.com) for version control and [Docker](https://www.docker.com/) for containerize your builds, and so forth.
 If you haven't used them yet, you're not a developer! Shame on you :unamused:
 
 I assume I have a simple web server in [Golang](https://golang.org) and want to deploy it on a [Kubernetes](https://kubernetes.io) cluster in both staging and production environment.
 
-### Step 1: Using a workflow
+### Step 1: Using a Workflow
 There are many flows for coding and deployment such as [Git Flow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) or [GitLab FLow](https://docs.gitlab.com/ee/workflow/gitlab_flow.html). You can read about them and use either if you want.
 
 I often use this flow or a simpler one:
@@ -34,7 +34,7 @@ In this flow, I always test new features on staging before release. If I find a 
 
 > Remember that staging is an environment to test the current project, not projects that use it. For example, the staging environment of rest is not to test the android application that uses this rest!
 
-### Step 2: Write GitLab CI file
+### Step 2: Write GitLab CI File
 
 As I said before, you should use Docker to build and containerize your application. I wrote a [Blog Post](https://nasermirzaei89.net/2018/12/25/dockerize-go-application/) before for dockerizing a go application.
 
@@ -49,7 +49,7 @@ You should have 3 stages in your CI:
 * Test
 * Deploy
 
-add them to your CI file:
+Add them to your CI file:
 
 ```yml
 stages:
@@ -58,7 +58,7 @@ stages:
   - Deploy
 ```
 
-and you can split your steps into 3 sections:
+You can split your steps into 3 sections:
 
 * Development
 * Staging
@@ -82,7 +82,7 @@ Lint:
 ```
 
 As you see, this step will run on every branch except master.
-I know that alpine images are smaller than default. But, I didn't use alpine because I need `Makefile` support.
+I know that alpine images are smaller than default, but I didn't use alpine because I need `Makefile` support.
 
 > You can add a pre-commit hook to check lint step on your local repo before gitlab!
 
@@ -173,7 +173,7 @@ In this step we use Docker for building an image, so we must use a docker image.
 
 At the first script, we assume to use our gitlab registry to push our image to it. So, we must log in to this registry before build and push. `$CI_JOB_TOKEN` is a token to login in your gitlab registry and `$CI_REGISTRY` is the address of the registry.
 
-After login, we build our image with a tag name that contains `$CI_REGISTRY_IMAGE` and docker tag `latest`. for example, this will be: `registry.nasermirzaei89.net/myproject/api:latest`
+After the login, we build our image with a tag name that contains `$CI_REGISTRY_IMAGE` and docker tag `latest`. for example, this will be: `registry.nasermirzaei89.net/myproject/api:latest`
 
 At the end, we push the image to the registry. Now you can check your registry to see your new image created with `latest` tag.
 
@@ -219,12 +219,12 @@ Build Image Tag:
 ```
 
 `$CI_COMMIT_TAG` is the name of the tag, eg. `v1.2.0`.
-And not that this step only runs on `tags`
+So, it doesn't mean that this step only runs on `tags`
 
 after passing this build stage on a tag, see the registry section on your gitlab to make sure the image has been built with the expected tag.
 
-Be careful that you said to run on master or except master in last steps so many of them will run on `tags`. You need to exclude them from tags to prevent running them on tagging a version.
-Add this to all last steps
+Be careful you said to run on master or except master in last steps so many of them will run on `tags`. You need to exclude them from tags to prevent running them on tagging a version.
+Add this to all last steps.
 ```yml
   except:
     - tags
@@ -334,7 +334,7 @@ Deploy Production:
     - tags
 ```
 
-It's my GitLab CI file in most projects. But it may be simpler or more complex in some projects.
+It's my GitLab CI file in most projects, but it may be simpler or more complex in some projects.
 Also, you might have tags for your runners. So, you must add tags to select a runner in your steps.
 
 Love automation and make development enjoyable!

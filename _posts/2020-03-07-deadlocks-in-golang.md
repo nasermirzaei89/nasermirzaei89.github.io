@@ -23,7 +23,7 @@ The last line waits forever for someone to read the channel. So, the program wil
 
 It's a **Deadlock**.
 
-Fortunately, Golang detects deadlocks in runtime and you will get this:
+Fortunately, Golang detects deadlocks in runtime, and you will get this:
 
 > The First time I faced deadlock was when I was working on a [WebAssembly](https://github.com/golang/go/wiki/WebAssembly) program.
 
@@ -43,7 +43,7 @@ There are some more examples of deadlock
 
 ## Example I
 
-When a goroutine writes to a channel that never will be read. Like the above code in the first of this article.
+When a goroutine writes to a channel that will never be read. Like the above code in the first of this article.
 
 ## Example II
 
@@ -97,7 +97,7 @@ Deadlock also occurs in [sync](https://golang.org/pkg/sync/) package when a goro
 Source codes with deadlock occurrence compile and build successfully,
 but panics in runtime.
 
-So, care when you use channels (and also sync package),
+So, care when you use channels (and sync package),
 and write good tests to trap deadlocks before deployment.
 
 :sparkles: _[Gridlock](https://en.wikipedia.org/wiki/Gridlock) image is from [Wikipedia](https://wikipedia.org/)_
