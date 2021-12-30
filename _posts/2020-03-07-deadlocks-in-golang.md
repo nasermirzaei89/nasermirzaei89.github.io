@@ -100,4 +100,4 @@ but panics in runtime.
 So, care when you use channels (and sync package),
 and write good tests to trap deadlocks before deployment.
 
-:sparkles: _[Gridlock](https://en.wikipedia.org/wiki/Gridlock) image is from [Wikipedia](https://wikipedia.org/)_
+✨ _[Gridlock](https://en.wikipedia.org/wiki/Gridlock) image is from [Wikipedia](https://wikipedia.org/)_

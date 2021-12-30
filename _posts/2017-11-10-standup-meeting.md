@@ -18,7 +18,7 @@ All team members get together in the **morning** and **stand up** for the durati
 
 ### Step 2: Put Your Game Face on
 
-When people know what to expect, they tend to lose interest. Because daily stand-ups are routine by nature, you need to vary the routine in order to keep people engaged. For example, if your typical stand-up agenda includes going around the room clockwise and hearing from each person, think about putting everyone’s name in a hat and drawing to see who goes next. You can even make it more interesting by giving out prizes, such as a Starbucks gift card or some other [tchotchke](https://en.wikipedia.org/wiki/Tchotchke) for the “last one standing” (the last name picked). You may even want to take a note from "The Pee-Wee Herman Show" and have a daily **secret word** to keep people listening closely.
+When people know what to expect, they tend to lose interest. Because daily stand-ups are routine by nature, you need to vary the routine in order to keep people engaged. For example, if your typical stand-up agenda includes going around the room clockwise and hearing from each person, think about putting everyone's name in a hat and drawing to see who goes next. You can even make it more interesting by giving out prizes, such as a Starbucks gift card or some other [tchotchke](https://en.wikipedia.org/wiki/Tchotchke) for the "last one standing" (the last name picked). You may even want to take a note from "The Pee-Wee Herman Show" and have a daily **secret word** to keep people listening closely.
 
 {% include youtube.html id="gxMZgeBlqzQ" %}
 
@@ -43,7 +43,7 @@ You can use a 10-minute "Egg Timer" or "Sandglass Hourglass" to manage and limit
 
 ### Step 4: Go on the Topic
 
-Often, people may be tempted to go off on different topics while they have the group’s ears, but don’t let them. Cut in whenever you notice the meeting is headed off-course and let that person know you appreciate them bringing up “Topic X,” but it’s a discussion for another time. To prevent people from getting upset over being redirected, you can let them know you care about Topic X by adding it to a whiteboard of "Topics for Later Discussion."
+Often, people may be tempted to go off on different topics while they have the group's ears, but don't let them. Cut in whenever you notice the meeting is headed off-course and let that person know you appreciate them bringing up "Topic X," but it's a discussion for another time. To prevent people from getting upset over being redirected, you can let them know you care about Topic X by adding it to a whiteboard of "Topics for Later Discussion."
 
 ## Avoidance Alert
 
@@ -59,11 +59,11 @@ The scrum meeting is not a planning meeting. Introducing new topics will divert 
 
 ### Letting People Ramble
 
-We get it — asking people to stop talking can be awkward. In general, adhering to the rule, “everything you say should be valuable to everyone in the room” will keep rambling down. If that’s not enough, another simple fix is to set a strict time limit for each speaker.
+We get it — asking people to stop talking can be awkward. In general, adhering to the rule, "everything you say should be valuable to everyone in the room" will keep rambling down. If that's not enough, another simple fix is to set a strict time limit for each speaker.
 
 ### Abandoning Team Communication in Favor of the Stand-Up
 
-The scrum meeting should not be the sole means of team communication. It’s easy to wait around for the next meeting to bring up an issue, but this just slows down your team and bloats the stand-up meeting.
+The scrum meeting should not be the sole means of team communication. It's easy to wait around for the next meeting to bring up an issue, but this just slows down your team and bloats the stand-up meeting.
 
 in 5 to 10 minutes, the whole team is totally in sync and avoids costly miscommunications.
 

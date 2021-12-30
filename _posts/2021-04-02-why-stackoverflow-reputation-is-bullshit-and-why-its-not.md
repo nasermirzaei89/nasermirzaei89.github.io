@@ -1,5 +1,5 @@
 ---
-title: Why Stack Overflow reputation is bullshit! and why it’s not!
+title: Why Stack Overflow reputation is bullshit! and why it's not!
 tags: StackOverflow Reputation GitHub Goodhart_Law
 description: We can misuse some metrics like Stackoverflow reputation or GitHub Stars!
 ---
@@ -14,11 +14,11 @@ Of course Yes! But still we have two more problems:
 First one is, nobody checks your reputation related to which technology that you use.
 The second one (the more critical one) is that if you ask or answer a question that is more advanced than common problems, you will earn less reputation than asking or answering a common problem. Because there are fewer people that face that problem.
 
-We have this problem in other services like GitHub for stars. Most times if you write a JS library it would earn more stars than a Golang library, because JS has more developers and also JS developers are more addicted to use libraries for trivial works. :D
+We have this problem in other services like GitHub for stars. Most times if you write a JS library it would earn more stars than a Golang library, because JS has more developers and also JS developers are more addicted to use libraries for trivial works. 😁
 
-Also some services like HackerRank have scoring mechanisms for developers based on the code in their repositories, and it leads to this problem if you use them for reviewing a developer’s abilities. Of course, I know most times these are gamification tricks to tempt them to make their profiles more complete or be more active on their services.
+Also, some services like HackerRank have scoring mechanisms for developers based on the code in their repositories, and it leads to this problem if you use them for reviewing a developer's abilities. Of course, I know most times these are gamification tricks to tempt them to make their profiles more complete or be more active on their services.
 
-It would be good to mention "Goodhart’s Law" which is somehow related to this article. When these metrics become measurements, developers try to focus on improving their rank in these services.
+It would be good to mention "Goodhart's Law" which is somehow related to this article. When these metrics become measurements, developers try to focus on improving their rank in these services.
 
 > There are some services like [gimhub.com](https://gimhub.com) that you can buy GitHub Stars!!!
 

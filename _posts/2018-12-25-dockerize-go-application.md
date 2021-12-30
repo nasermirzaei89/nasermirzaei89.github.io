@@ -11,7 +11,7 @@ I use previous post application: [Here](/2018/12/14/using-go-modules/) :smile:
 
 ## Write Dockerfile
 
-First of all, we use Go 1.11 image:
+First, we use Go 1.11 image:
 
 ```Dockerfile
 FROM golang:1.11
@@ -187,4 +187,4 @@ Now use `base` stage as image for `build` stage and do build as same as past.
 
 By using docker images we can develop and build applications faster in an OS independent environment. So, it's useful to build you go (and all other languages) applications in Docker containers.
 
-Good development! :wink:
+Good development! 😉

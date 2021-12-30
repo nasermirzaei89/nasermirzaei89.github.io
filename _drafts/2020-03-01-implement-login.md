@@ -40,7 +40,7 @@ Hey, hackers can try to login with random generated passwords to find the correc
 But bcrypt has a cost for compare password with the hash. So, it's not fast as we think to do this comparison.
 And it takes a long time to find the correct password.
 
-Also it's good to limit login tries for a username or an IP.
+Also, it's good to limit login tries for a username or an IP.
 For example user must wait for 5 minutes after 5 failed attempts.
 
 By the way, this method is not the best way to login, because it's hard for most users to remember their password and boring to type complex passwords.

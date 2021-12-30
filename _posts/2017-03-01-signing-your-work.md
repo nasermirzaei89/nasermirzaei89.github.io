@@ -1,14 +1,14 @@
 ---
-tags: git github signing GPG
-description: Git is cryptographically secure, but it’s not foolproof. If you’re taking work from others on the internet and want to verify that commits are actually from a trusted source, Git has a few ways to sign and verify work using GPG.
+tags: git GitHub signing GPG
+description: Git is cryptographically secure, but it's not foolproof. If you're taking work from others on the internet and want to verify that commits are actually from a trusted source, Git has a few ways to sign and verify work using GPG.
 ---
 ![Git]({{ "/assets/git-logo.png" | absolute_url }})
 
-Git is cryptographically secure, but it’s not foolproof. If you’re taking work from others on the internet and want to verify that commits are actually from a trusted source, Git has a few ways to sign and verify work using GPG.
+Git is cryptographically secure, but it's not foolproof. If you're taking work from others on the internet and want to verify that commits are actually from a trusted source, Git has a few ways to sign and verify work using GPG.
 
 ## GPG Introduction
 
-First of all, if you want to sign anything you need to get GPG configured, and your personal key installed.
+First, if you want to sign anything you need to get GPG configured, and your personal key installed.
 
 ```bash
 gpg --list-keys
@@ -24,7 +24,7 @@ uid                  Naser Mirzaei <nasermirzaei89@gmail.com>
 sub   2048R/8369A0DC 2017-03-01
 ```
 
-If you don’t have a key installed, you can generate one with `gpg --gen-key`:
+If you don't have a key installed, you can generate one with `gpg --gen-key`:
 
 ```bash
 gpg --gen-key
@@ -133,7 +133,7 @@ changed the version number
 
 ## Verifying Tags
 
-To verify a signed tag, you use `git tag -v [tag-name]`. This command uses GPG to verify the signature. You need the signer’s public key in your keyring for this to work properly:
+To verify a signed tag, you use `git tag -v [tag-name]`. This command uses GPG to verify the signature. You need the signer's public key in your keyring for this to work properly:
 
 ```
 $ git tag -v v1.4.2.1
@@ -159,7 +159,7 @@ error: could not verify the tag 'v1.4.2.1'
 
 ## Signing Commits
 
-In more recent versions of Git (v1.7.9 and above), you can now also sign individual commits. If you’re interested in signing commits directly instead of just the tags, all you need to do is add a `-s` to your `git commit` command.
+In more recent versions of Git (v1.7.9 and above), you can now also sign individual commits. If you're interested in signing commits directly instead of just the tags, all you need to do is add a `-s` to your `git commit` command.
 
 ```
 $ git commit -a -S -m 'signed commit'
@@ -245,7 +245,7 @@ gpg --list-secret-keys --keyid-format LONG
 
 > Note: Some GPG installations on Linux may require you to use `gpg2 --list-keys --keyid-format LONG` to view a list of your existing keys instead. In this case you will also need to configure Git to use `gpg2` by running `git config --global gpg.program gpg2`.
 
-From the list of GPG keys, copy the GPG key ID you’d like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
+From the list of GPG keys, copy the GPG key ID you'd like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
 
 Output:
 
@@ -257,7 +257,7 @@ uid                          Naser Mirzaei <nasermirzaei89@gmail.com>
 ssb   2048R/0E098B718369A0DC 2017-03-01
 ```
 
-Paste the text below, substituting in the GPG key ID you’d like to use. In this example, the GPG key ID is `4E4E444D0857423A`:
+Paste the text below, substituting in the GPG key ID you'd like to use. In this example, the GPG key ID is `4E4E444D0857423A`:
 
 ```bash
 gpg --armor --export 4E4E444D0857423A
@@ -269,7 +269,7 @@ Your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending w
 
 ## Everyone Must Sign
 
-Signing tags and commits are great, but if you decide to use this in your normal workflow, you’ll have to make sure everyone on your team understands how to do so. If you don’t, you’ll end up spending a lot of time helping people figure out how to rewrite their commits with signed versions. Make sure you understand GPG, and the benefits of signing things before adopting this as part of your standard workflow.
+Signing tags and commits are great, but if you decide to use this in your normal workflow, you'll have to make sure everyone on your team understands how to do so. If you don't, you'll end up spending a lot of time helping people figure out how to rewrite their commits with signed versions. Make sure you understand GPG, and the benefits of signing things before adopting this as part of your standard workflow.
 
 ## References
 

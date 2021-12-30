@@ -6,6 +6,6 @@ Welcome to my personal website. I'm "Naser Mirzaei", and I will write everything
 
 Feel free to send feedback about my posts.
 
-Also, I will edit my old posts when it needs. :wink:
+Also, I'll edit my old posts when it needs. 😉
 
 Good luck!

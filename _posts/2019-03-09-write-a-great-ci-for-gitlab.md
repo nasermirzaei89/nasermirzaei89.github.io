@@ -15,8 +15,8 @@ So, let's do these steps to have a complete ci/cd process:
 
 ### Step 0
 
-First of all, you should use [Git](https://git-scm.com) for version control and [Docker](https://www.docker.com/) for containerize your builds, and so forth.
-If you haven't used them yet, you're not a developer! Shame on you :unamused:
+First, you should use [Git](https://git-scm.com) for version control and [Docker](https://www.docker.com/) for containerize your builds, and so forth.
+If you haven't used them yet, you're not a developer! Shame on you 😒
 
 I assume I have a simple web server in [Golang](https://golang.org) and want to deploy it on a [Kubernetes](https://kubernetes.io) cluster in both staging and production environment.
 
@@ -218,7 +218,7 @@ Build Image Tag:
     - tags
 ```
 
-`$CI_COMMIT_TAG` is the name of the tag, eg. `v1.2.0`.
+`$CI_COMMIT_TAG` is the name of the tag, eg: `v1.2.0`.
 So, it doesn't mean that this step only runs on `tags`
 
 after passing this build stage on a tag, see the registry section on your gitlab to make sure the image has been built with the expected tag.

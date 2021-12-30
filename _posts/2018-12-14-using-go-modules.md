@@ -11,7 +11,7 @@ Now we want to use this feature as simple as possible.
 
 ## Let's go!
 
-First of all create a new directory everywhere you want, even out of your `$GOPATH`.
+First, create a new directory everywhere you want, even out of your `$GOPATH`.
 
 ```bash
 mkdir hello-world

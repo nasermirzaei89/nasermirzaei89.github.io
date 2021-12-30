@@ -15,11 +15,11 @@ I used to develop by [Jet Brains](https://www.jetbrains.com/) tools since 5 year
 
 ### VSCode is free
 
-VSCode is totally free and open source. Jet Brain tools aren't free and I need to pay for them. But it's a bit hard for me to pay! Yes, here is Iran and International Payment is hard. Also, their price in Rial is expensive for us.
+VSCode is totally free and open source. Jet Brain tools aren't free, and I need to pay for them. But it's a bit hard for me to pay! Yes, here is Iran and International Payment is hard. Also, their price in Rial is expensive for us.
 
 ### All languages in one IDE
 
-As you know, you can code all languages in one IDE named VSCode. Before, I had to install most of Jet Brains products to use different languages. For example, GoLand for Golang, WebStorm for HTML and JS, PyCharm for python, and etcetera.
+As you know, you can code all languages in one IDE named VSCode. Before, I had to install most Jet Brains products to use different languages. For example, GoLand for Golang, WebStorm for HTML and JS, PyCharm for python, etc.
 
 ### Light IDE
 Jet Brain is really a big memory consumer like Google Chrome and you can't leave them open for next day, or you need to restart the IDE or the whole OS. But VSCode is light and consume less memory and don't use system resources for indexing all time.
