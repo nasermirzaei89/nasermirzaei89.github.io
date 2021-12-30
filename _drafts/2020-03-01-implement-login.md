@@ -3,7 +3,7 @@ tags: Login Development Rest_API
 description: In this article I want to talk about how to implement user login
 ---
 
-In this article I want to discuss about how to implement user login.
+In this article I want to discuss how to implement user login.
 Login is the way to authenticate user in the application or service.
 
 There are many ways to authenticate a user.
@@ -33,7 +33,7 @@ Then you can send reset instruction or link to the user email address.
 Be aware that you should not store user passwords without hashing it. So, you can't send user password to their email address, because you don't have it.
 There are many cases of databases that are hacked and user passwords has been stolen from them, because they stored passwords simply without hashing.
 
-There is a password hashing function that is designed by Niels Provos and David Mazières, based on the Blowfish cipher, and presented at USENIX in 1999.
+There is a password hashing function that is designed by "Niels Provos" and "David Mazières", based on the Blowfish cipher, and presented at USENIX in 1999.
 with `bcrypt` you can hash user passwords and when user tries to login, you compare their password with this hash instead of simple comparison.
 
 Hey, hackers can try to login with random generated passwords to find the correct one for critical users. Of course yes!
