@@ -16,168 +16,199 @@ Also, you can config or disable each module that you don't want or don't believe
 GolangCI Lint is a package of some other linters those are individual applications.
 This is just an all-in-one tool. So I will review all of its linters.
 
-## deadcode
+## `deadcode`
 
-## errcheck
+https://github.com/remyoudompheng/go-misc/tree/master/deadcode
 
-## gosimple
+`deadcode` is a simple tool which detects unused declarations in a go code.
+With this linter you can find and remove unused codes and make your code cleaner!
 
-## govet
+As we should use version control tools like [Git](https://git-scm.com/),
+don't be afraid of deleting unused codes. You can always find the in the repository history.
 
-## ineffassign
+Also, when you don't need a part of code that is being used before,
+and after a while you need to use them again, you should think how to use them for needs of the day.
 
-## staticcheck
+## `errcheck`
 
-## structcheck
+https://github.com/kisielk/errcheck
 
-## typecheck
+I reviewed many codes and found how many times developers doesn't check the returned errors.
+Although in must cases they never throw an error, but you have to check them. Your code shouldn't be fragile.
+`errcheck` is the agent to check for unchecked errors.
 
-## unused
+If it doesn't matter that a function returns error, explicitly ignore it:
 
-## varcheck
+```
+_ = foo.Bar()
+```
 
-## asciicheck
+Or you should check it. So using this linter is a good practice.
 
-## bidichk
+## `gosimple`
 
-## bodyclose
+https://github.com/dominikh/go-tools/tree/master/simple
 
-## contextcheck
+`gosimple` find and suggest a simpler version of parts of your code.
 
-## cyclop
+Use it! Sometimes we have unnecessary complexity in out codes.
 
-## depguard
+## `govet`
 
-## dogsled
+## `ineffassign`
 
-## dupl
+## `staticcheck`
 
-## durationcheck
+## `structcheck`
 
-## errname
+## `typecheck`
 
-## errorlint
+## `unused`
 
-## exhaustive
+## `varcheck`
 
-## exhaustivestruct
+## `asciicheck`
 
-## exportloopref
+## `bidichk`
 
-## forbidigo
+## `bodyclose`
 
-## forcetypeassert
+## `contextcheck`
 
-## funlen
+## `cyclop`
 
-## gci
+## `depguard`
 
-## gochecknoglobals
+## `dogsled`
 
-## gochecknoinits
+## `dupl`
 
-## gocognit
+## `durationcheck`
 
-## goconst
+## `errname`
 
-## gocritic
+## `errorlint`
 
-## gocyclo
+## `exhaustive`
 
-## godot
+## `exhaustivestruct`
 
-## godox
+## `exportloopref`
 
-## goerr113
+## `forbidigo`
 
-## gofmt
+## `forcetypeassert`
 
-## gofumpt
+## `funlen`
 
-## goheader
+## `gci`
 
-## goimports
+## `gochecknoglobals`
 
-## golint
+## `gochecknoinits`
 
-## gomnd
+## `gocognit`
 
-## gomoddirectives
+## `goconst`
 
-## gomodguard
+## `gocritic`
 
-## goprintffuncname
+## `gocyclo`
 
-## gosec
+## `godot`
 
-## ifshort
+## `godox`
 
-## importas
+## `goerr113`
 
-## interfacer
+## `gofmt`
 
-## ireturn
+## `gofumpt`
 
-## lll
+## `goheader`
 
-## makezero
+## `goimports`
 
-## maligned
+## `golint`
 
-## misspell
+## `gomnd`
 
-## nakedret
+## `gomoddirectives`
 
-## nestif
+## `gomodguard`
 
-## nilerr
+## `goprintffuncname`
 
-## nilnil
+## `gosec`
 
-## nlreturn
+## `ifshort`
 
-## noctx
+## `importas`
 
-## nolintlint
+## `interfacer`
 
-## paralleltest
+## `ireturn`
 
-## prealloc
+## `lll`
 
-## predeclared
+## `makezero`
 
-## promlinter
+## `maligned`
 
-## revive
+## `misspell`
 
-## rowserrcheck
+## `nakedret`
 
-## scopelint
+## `nestif`
 
-## sqlclosecheck
+## `nilerr`
 
-## stylecheck
+## `nilnil`
 
-## tagliatelle
+## `nlreturn`
 
-## tenv
+## `noctx`
 
-## testpackage
+## `nolintlint`
 
-## thelper
+## `paralleltest`
 
-## tparallel
+## `prealloc`
 
-## unconvert
+## `predeclared`
 
-## unparam
+## `promlinter`
 
-## varnamelen
+## `revive`
 
-## wastedassign
+## `rowserrcheck`
 
-## whitespace
+## `scopelint`
 
-## wrapcheck
+## `sqlclosecheck`
 
-## wsl
+## `stylecheck`
+
+## `tagliatelle`
+
+## `tenv`
+
+## `testpackage`
+
+## `thelper`
+
+## `tparallel`
+
+## `unconvert`
+
+## `unparam`
+
+## `varnamelen`
+
+## `wastedassign`
+
+## `whitespace`
+
+## `wrapcheck`
+
+## `wsl`
