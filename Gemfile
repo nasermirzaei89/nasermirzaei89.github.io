@@ -4,6 +4,8 @@ gem "html-proofer"
 
 gem "jekyll"
 
+gem "jemoji"
+
 #gem "github-pages", group: :jekyll_plugins
 
 group :jekyll_plugins do
