@@ -117,10 +117,10 @@ It's better add your/a SSH Key to the project.
 So, it can be used for connecting to the servers.
 
 ```shell
-hcloud ssh-key create --name ssh-key-1 --public-key-from-file ~/.ssh/id_ed25519.pub
+hcloud ssh-key create --name ssh-key-1 --public-key-from-file ~/.ssh/id_rsa.pub
 ```
 
-Use your own ssh public key address instead of `id_ed25519.pub`.
+Use your own ssh public key address instead of `id_rsa.pub`.
 
 Minimum node counts for High Availability is 3.
 
@@ -393,3 +393,18 @@ When updating, to ensure its continued reliability, remember to consult changelo
 
 Additionally, please be aware that server and peer certificates have a two-year validity period,
 so it's essential to proactively renew and replace them before they expire.
+
+## Cleaning up
+
+for removing servers and network you can run:
+
+```shell
+for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=true -o noheader -o columns=name); do
+  hcloud server delete ${NODE}
+done
+
+NETWORK_NAME=network-1
+hcloud network delete ${NETWORK_NAME}
+
+hcloud ssh-key delete ssh-key-1
+```
