@@ -197,6 +197,7 @@ and minimizes the risk of compromise in a distributed system like etcd.
 For each member (Server Cert):
 
 ```shell
+{% raw %}
 for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=true -o noheader -o columns=name); do
   openssl genrsa -out ${NODE}-etcd-server.key 2048
 
@@ -211,11 +212,13 @@ for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=tr
     -sha256 -CAcreateserial -days 730 -extensions v3_ext -extfile ${NODE}-etcd-server.conf \
     -out ${NODE}-etcd-server.crt
 done
+{% endraw %}
 ```
 
 For each member (Peer Cert):
 
 ```shell
+{% raw %}
 for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=true -o noheader -o columns=name); do
   openssl genrsa -out ${NODE}-etcd-peer.key 2048
 
@@ -231,11 +234,13 @@ for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=tr
     -sha256 -CAcreateserial -days 730 -extensions v3_ext -extfile ${NODE}-etcd-peer.conf \
     -out ${NODE}-etcd-peer.crt
 done
+{% endraw %}
 ```
 
 ### Copy Certificates to servers
 
 ```shell
+{% raw %}
 for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=true -o noheader -o columns=name); do
   scp etcd-ca.crt root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/
   scp ${NODE}-etcd-server.key root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/etcd-server.key
@@ -243,6 +248,7 @@ for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=tr
   scp ${NODE}-etcd-peer.key root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/etcd-peer.key
   scp ${NODE}-etcd-peer.crt root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/etcd-peer.crt
 done
+{% endraw %}
 ```
 
 ## Install
@@ -254,7 +260,9 @@ Now, we can go to the servers to continue the work on them.
 On all servers:
 
 ```shell
+{% raw %}
 ssh root@$(hcloud server describe <NODE_NAME> -o format='{{.PublicNet.IPv4.IP}}')
+{% endraw %}
 ```
 
 Replace `<NODE_NAME>` with real node names.
@@ -295,6 +303,7 @@ For some values we need to provide them on our own machine which the `hcloud` cl
 I wrote this script to provide value of `ETCD_INITIAL_CLUSTER` variable:
 
 ```shell
+{% raw %}
 ARRAY=()
 for NODE in $(hcloud server list --selector etcd=true -o noheader -o columns=name); do
   ARRAY+=("${NODE}=https://$(hcloud server describe ${NODE} -o format='{{ (index .PrivateNet 0).IP}}'):2380")
@@ -303,6 +312,7 @@ done
 ETCD_INITIAL_CLUSTER=$(printf ",%s" "${ARRAY[@]}")
 ETCD_INITIAL_CLUSTER=${ETCD_INITIAL_CLUSTER:1}
 echo $ETCD_INITIAL_CLUSTER
+{% endraw %}
 ```
 
 Run this on your own machine and use it when editing the etcd config file.
