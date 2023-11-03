@@ -161,7 +161,7 @@ openssl req -x509 -new -nodes -key etcd-ca.key -subj "/CN=etcd-ca" -days 5475 -o
 Create a template file for config:
 
 ```shell
-cat <<EOF | sudo tee etcd-server.conf.tpl
+cat <<EOF | tee etcd-server.conf.tpl
 [ req ]
 default_bits = 2048
 prompt = no
@@ -180,7 +180,6 @@ DNS.1 = <NODE_NAME>
 DNS.2 = localhost
 IP.1 = 127.0.0.1
 IP.2 = <NODE_INTERNAL_IP>
-IP.3 = <NODE_EXTERNAL_IP>
 
 [ v3_ext ]
 subjectAltName=@alt_names
@@ -201,10 +200,9 @@ For each member (Server Cert):
 for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=true -o noheader -o columns=name); do
   openssl genrsa -out ${NODE}-etcd-server.key 2048
 
-  EXTERNAL_IP=$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}')
   INTERNAL_IP=$(hcloud server describe ${NODE} -o format='{{ (index .PrivateNet 0).IP}}')
 
-  cat etcd-server.conf.tpl | sed -e "s/\<NODE_NAME>/${NODE}/" -e "s/\<NODE_INTERNAL_IP>/${INTERNAL_IP}/" -e "s/\<NODE_EXTERNAL_IP>/${EXTERNAL_IP}/" > ${NODE}-etcd-server.conf 
+  cat etcd-server.conf.tpl | sed -e "s/\<NODE_NAME>/${NODE}/" -e "s/\<NODE_INTERNAL_IP>/${INTERNAL_IP}/" > ${NODE}-etcd-server.conf 
 
   openssl req -new -key ${NODE}-etcd-server.key \
     -config ${NODE}-etcd-server.conf \
@@ -239,7 +237,7 @@ done
 
 ```shell
 for NODE in $(hcloud server list --selector cluster=cluster-1 --selector etcd=true -o noheader -o columns=name); do
-  scp etcd-ca.crt root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/etcd-ca.crt
+  scp etcd-ca.crt root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/
   scp ${NODE}-etcd-server.key root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/etcd-server.key
   scp ${NODE}-etcd-server.crt root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/etcd-server.crt
   scp ${NODE}-etcd-peer.key root@$(hcloud server describe ${NODE} -o format='{{.PublicNet.IPv4.IP}}'):~/etcd-peer.key
