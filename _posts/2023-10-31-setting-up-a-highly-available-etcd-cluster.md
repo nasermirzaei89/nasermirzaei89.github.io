@@ -305,7 +305,7 @@ I wrote this script to provide value of `ETCD_INITIAL_CLUSTER` variable:
 ```shell
 {% raw %}
 ARRAY=()
-for NODE in $(hcloud server list --selector etcd=true -o noheader -o columns=name); do
+for NODE in $(hcloud server list --selector cluster=cluster1 --selector etcd=true -o noheader -o columns=name); do
   ARRAY+=("${NODE}=https://$(hcloud server describe ${NODE} -o format='{{ (index .PrivateNet 0).IP}}'):2380")
 done
 
