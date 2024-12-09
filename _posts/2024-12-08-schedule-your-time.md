@@ -22,15 +22,15 @@ I usually use my MacBook, so I created a [Google Sheet](https://sheets.new/) and
 I divided the day into 30-minute chunks, with the time as the first column and the days of the week as the table
 headers.
 
-|          | Mon, Dec 2 | Tue, Dec 3 | Wed, Dec 4 | Thu, Dec 5 | Fri, Dec 6 | Sat, Dec 7 | Sun, Dec 8 |
-|----------|------------|------------|------------|------------|------------|------------|------------|
-| 12:00 AM | Sleep      | Sleep      | Sleep      | Sleep      | Sleep      | Sleep      | Sleep      |
-| 12:30 AM |            |            |            |            |            |            |            |
-| ........ |            |            |            |            |            |            |            |
-| 09:00 AM | Breakfast  | Breakfast  | Breakfast  | Breakfast  | Breakfast  | Breakfast  | Breakfast  |
-| 09:30 AM |            |            |            |            |            |            |            |
-| ........ |            |            |            |            |            |            |            |
-| 11:30 PM |            |            |            |            |            |            |            |
+|          | Mon, Dec 2 | Tue, Dec 3 | Wed, Dec 4 | Thu, Dec 5 | Fri, Dec 6 | ... |
+|----------|------------|------------|------------|------------|------------|-----|
+| 12:00 AM | Sleep      | Sleep      | Sleep      | Sleep      | Sleep      | ... |
+| 12:30 AM |            |            |            |            |            | ... |
+| ........ |            |            |            |            |            | ... |
+| 09:00 AM | Breakfast  | Breakfast  | Breakfast  | Breakfast  | Breakfast  | ... |
+| 09:30 AM |            |            |            |            |            | ... |
+| ........ |            |            |            |            |            | ... |
+| 11:30 PM |            |            |            |            |            | ... |
 
 I scheduled all my fixed routines for the week, such as:
 
