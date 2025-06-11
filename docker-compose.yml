@@ -1,9 +1,7 @@
-version: '3.0'
-
 services:
   site:
     command: jekyll serve --drafts
-    image: jekyll/jekyll
+    image: jekyll/jekyll:4.2.0
     volumes:
       - $PWD:/srv/jekyll
       - $PWD/vendor/bundle:/usr/local/bundle
